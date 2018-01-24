@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="Service" namespace="Service.Models">
+  <class name="Movie" table="Movies" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="ID" column="ID" type="int">
+      <generator class="native" />
+    </id>
+
+    <property name="Title" column="Title" />
+    <property name="ReleaseDate" column="ReleaseDate" />
+    <property name="Genre" column="Genre"/>
+    <property name="Price" column="Price"/>
+    <bag name="Actors" table="Actor_r_Movie"  cascade="save-update" >
+      <key column="Movieid"/>
+      <many-to-many class="Actor" column="Actorid"/>
+    </bag>
+  </class>
+</hibernate-mapping>

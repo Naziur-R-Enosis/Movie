@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
+using StructureMap;
+using Service.DependencyResolution;
 
 namespace Service
 {
@@ -12,6 +15,13 @@ namespace Service
             // Web API configuration and services
 
             // Web API routes
+
+            IContainer container = IoC.Initialize();
+            GlobalConfiguration.Configuration.DependencyResolver = new StructureMapWebApiDependencyResolver(container);
+
+
+            var cors = new EnableCorsAttribute("*","*","*");
+            config.EnableCors(cors);
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

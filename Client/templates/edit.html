@@ -1,0 +1,28 @@
+<div class="container">
+    <form ng-submit="moviesubmit()">
+        <div class="row">
+            <input type="hidden" ng-model="user.ID" />
+            <div class="col-25">
+                <label for="Title">Title</label>
+                <input id="Title" type="text" ng-model="user.Title" />
+            </div>
+
+            <div class="col-25">
+                <label for="ReleaseDate">ReleaseDate</label>
+                <input id="ReleaseDate" type="date" ng-model="user.ReleaseDate " />
+            </div>
+
+            <div class="col-25">
+                <label for="Genre">Genre</label>
+                <input id="Genre" type="text" ng-model="user.Genre" />
+            </div>
+
+            <div class="col-25">
+                <label for="Price">Price</label>
+                <input id="Price" type="text" ng-model="user.Price" />
+            </div>
+
+            <button type="submit" id="submit">Save</button>
+        </div>
+    </form>
+</div>

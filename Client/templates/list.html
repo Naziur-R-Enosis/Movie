@@ -1,0 +1,28 @@
+<h2>Index</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>ReleaseDate</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>Actor Name</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="movie in movies">
+            <td>{{movie.Title}}</td>
+            <td>{{Getdate(movie.ReleaseDate) | date:dd.mm.yyyy}}</td>
+            <td>{{movie.Genre}}</td>
+            <td>{{movie.Price}}</td>
+            <td>
+                <ul ng-repeat="actor in movie.Actors">
+                    <li>{{actor.Name}}</li>
+                </ul>
+            </td>
+            <td>
+                <a href="#!/routeEdit/{{movie.ID}}">Edit</a>
+            </td>
+        </tr>
+    </thead>
+</table>
